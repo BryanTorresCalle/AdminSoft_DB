@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.AddIncomeController">
+   <children>
+      <Button layoutX="80.0" layoutY="45.0" mnemonicParsing="false" text="Agregar ingreso" />
+      <Button layoutX="246.0" layoutY="45.0" mnemonicParsing="false" text="Modificar ingreso" />
+      <Button layoutX="394.0" layoutY="45.0" mnemonicParsing="false" text="Eliminar ingreso" />
+      <TableView layoutX="80.0" layoutY="100.0" prefHeight="200.0" prefWidth="429.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id" />
+          <TableColumn prefWidth="75.0" text="Valor" />
+            <TableColumn prefWidth="75.0" text="Fecha de Pago" />
+            <TableColumn prefWidth="75.0" text="Apto" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

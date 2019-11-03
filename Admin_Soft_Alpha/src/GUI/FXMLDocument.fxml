@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="admin_soft_alpha.FXMLDocumentController">
+   <children>
+      <Button layoutX="39.0" layoutY="147.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Ingresos" />
+      <Label layoutX="92.0" layoutY="8.0" prefHeight="51.0" prefWidth="248.0" text="ADMIN SOFT" textAlignment="CENTER">
+         <font>
+            <Font name="Bookman Old Style Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="92.0" text="Bienvenido!">
+         <font>
+            <Font name="Bookman Old Style Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="39.0" layoutY="185.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Gastos" />
+      <Button layoutX="39.0" layoutY="223.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Propietarios" />
+      <Button layoutX="39.0" layoutY="261.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Empresas de servicios" wrapText="true" />
+   </children>
+</AnchorPane>
