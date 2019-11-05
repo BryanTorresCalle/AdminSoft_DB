@@ -51,7 +51,7 @@ public class AddIncomeController implements Initializable {
             // TODO Weas SQL
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
         }else{
-            new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellennar", ButtonType.OK).show();
+            new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
         } 
             
         
