@@ -42,9 +42,8 @@ public class IncomeController implements Initializable {
         btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml") );
     }    
     
-     public void toScreen(String screen){      
-         
-         
+     public void toScreen(String screen){     
+          
             try {
                 
                 FXMLLoader fXMLLoader = new FXMLLoader();
