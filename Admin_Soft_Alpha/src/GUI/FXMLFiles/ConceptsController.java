@@ -10,49 +10,41 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author ACER
  */
-public class MainController implements Initializable {
+public class ConceptsController implements Initializable {
+
     
     @FXML
-    private Button btnIncomes;
+    private Button btnAddConcept;
     @FXML
-    private Button btnExpenses;
+    private Button btnEditConcept;
     @FXML
-    private Button btnOwners;
+    private Button btnDelConcept;
     @FXML
-    private Button btnCompanies;
-    @FXML
-    private Button btnConcepts;
+    private TableView tblCompanies;
     
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnIncomes.setOnAction(e -> toScreen("FXMLIncome.fxml") );
-        btnExpenses.setOnAction(e -> toScreen("FXMLExpenses.fxml") );
-        btnOwners.setOnAction(e -> toScreen("FXMLOwners.fxml") );
-        btnCompanies.setOnAction(e -> toScreen("FXMLCompanies.fxml") );
-        btnConcepts.setOnAction(e -> toScreen("FXMLConcepts.fxml") );
-    }
+        btnAddConcept.setOnAction(e -> toScreen("FXMLAddConcept.fxml") );
+    }    
 
-
-    /**
-     * Metodo para cambiar de pantalla 
-     * @param screen nombre del archivo fxml
-     */
-    public void toScreen(String screen){     
-          
-            try {
+    private void toScreen(String screen) {
+        try {
                 
                 FXMLLoader fXMLLoader = new FXMLLoader();
                 fXMLLoader.setLocation(getClass().getResource(screen));
@@ -64,7 +56,6 @@ public class MainController implements Initializable {
                 
                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             } 
-        
     }
     
 }

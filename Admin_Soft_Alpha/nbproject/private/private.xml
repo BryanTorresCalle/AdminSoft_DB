@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Usuario/Desktop/Proyecto%20final%20bd/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/AddCompanyController.java</file>
             <file>file:/C:/Users/Usuario/Desktop/Proyecto%20final%20bd/AdminSoft_DB/Admin_Soft_Alpha/src/Classes/Owner.java</file>
+=======
+            <file>file:/C:/Users/Usuario/Desktop/AdminSoft_DB-master/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/FXMLAddIncome.fxml</file>
+            <file>file:/C:/Users/Usuario/Desktop/AdminSoft_DB-master/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/FXMLAddCompany.fxml</file>
+            <file>file:/C:/Users/Usuario/Desktop/AdminSoft_DB-master/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/IncomeController.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/AdminSoft_DB-master/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/AddIncomeController.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/AdminSoft_DB-master/AdminSoft_DB/Admin_Soft_Alpha/src/GUI/FXMLFiles/AddCompanyController.java</file>
+>>>>>>> 98284925a14ff2411ece48d6499c6a8b96aa4049
         </group>
     </open-files>
 </project-private>

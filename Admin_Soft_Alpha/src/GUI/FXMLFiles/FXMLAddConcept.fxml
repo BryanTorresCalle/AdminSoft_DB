@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.FXMLFiles.FXMLAddConceptController">
+     <children>
+      <Label layoutX="72.0" layoutY="49.0" text="Agregar Concepto">
+         <font>
+            <Font name="Bookman Old Style Bold" size="24.0" />
+         </font></Label>
+      <TextField fx:id="txtName" layoutX="72.0" layoutY="131.0" promptText="Nombre" />
+      <TextField fx:id="txtDesc" layoutX="72.0" layoutY="209.0" prefWidth="150.0" promptText="Descripción" />
+      <Button fx:id="btnAdd" layoutX="74.0" layoutY="313.0" mnemonicParsing="false" text="Aceptar" />
+   </children>
+</AnchorPane>
