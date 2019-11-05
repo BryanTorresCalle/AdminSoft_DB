@@ -5,59 +5,87 @@
  */
 package Classes;
 
-public class Company {
-    int id;
-    String nit;
-    String nombre;
-    String correo;
-    String telefono;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-    public int getId() {
+public class Company {
+    private final StringProperty id;
+    private final StringProperty nit;
+    private final StringProperty name;
+    private final StringProperty eMail;
+    private final StringProperty phone;
+
+    public Company(){
+        this(null,null,null,null,null);
+    }
+   
+    public Company(String id,String nit,String nombre,String correo,String telefono){
+           this.id = new SimpleStringProperty(id);
+           this.nit = new SimpleStringProperty(nit);
+           this.name = new SimpleStringProperty(nombre);
+           this.eMail = new SimpleStringProperty(correo);
+           this.phone = new SimpleStringProperty(telefono);
+    }
+    
+    public String getId(){
+        return id.get();
+    }
+    
+    public void setId(String id){
+        this.id.set(id);
+    }
+    
+    public StringProperty idProperty(){
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
+    
+    public String getNit(){
+        return nit.get();
     }
-
-    public String getNit() {
+    
+    public void setNit(String nit){
+        this.nit.set(nit);
+    }
+    
+    public StringProperty nitProperty(){
         return nit;
     }
-
-    public void setNit(String nit) {
-        this.nit = nit;
+    
+    public String getName(){
+        return name.get();
     }
-
-    public String getNombre() {
-        return nombre;
+    
+    public void setName(String name){
+        this.name.set(name);
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    
+    public StringProperty nameProperty(){
+        return name;
     }
-
-    public String getCorreo() {
-        return correo;
+    public String getEmail(){
+        return eMail.get();
     }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    
+    public void setEmail(String eMail){
+        this.eMail.set(eMail);
     }
-
-    public String getTelefono() {
-        return telefono;
+    
+    public StringProperty emailProperty(){
+        return eMail;
     }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    
+    public String getPhone(){
+        return phone.get();
     }
-
-    public Company(int id, String nit, String nombre, String correo, String telefono) {
-        this.id = id;
-        this.nit = nit;
-        this.nombre = nombre;
-        this.correo = correo;
-        this.telefono = telefono;
+    
+    public void setPhone(String phone){
+        this.phone.set(phone);
     }
+    
+    public StringProperty StringPhone(){
+        return phone;
+    }
+    
+    
 
 }
