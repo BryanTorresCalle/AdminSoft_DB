@@ -22,10 +22,6 @@ public class Expense {
     private final StringProperty idConcept;
     private final StringProperty idCompany;
 
-    public Expense() {
-        this(null, 0, null, null, null);
-    }
-
     public Expense(String id, double value, String paymentDate, String idConcept, String idCompany) {
         this.id = new SimpleStringProperty(id);
         this.value = new SimpleDoubleProperty(value);

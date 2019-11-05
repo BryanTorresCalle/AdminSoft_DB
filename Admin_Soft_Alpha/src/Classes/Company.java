@@ -15,9 +15,6 @@ public class Company {
     private final StringProperty eMail;
     private final StringProperty phone;
 
-    public Company(){
-        this(null,null,null,null,null);
-    }
    
     public Company(String id,String nit,String nombre,String correo,String telefono){
            this.id = new SimpleStringProperty(id);
