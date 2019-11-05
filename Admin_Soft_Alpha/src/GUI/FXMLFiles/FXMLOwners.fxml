@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.OwnersController">
+    <children>
+      <Button fx:id="btnAddOwner" layoutX="80.0" layoutY="99.0" mnemonicParsing="false" text="Agregar propietario" />
+      <Button fx:id="btnEditOwner" layoutX="240.0" layoutY="99.0" mnemonicParsing="false" text="Modificar propietario" />
+      <Button fx:id="btnDelOwner" layoutX="393.0" layoutY="99.0" mnemonicParsing="false" text="Eliminar propietario" />
+      <TableView fx:id="tblOwners" layoutX="80.0" layoutY="157.0" prefHeight="200.0" prefWidth="429.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id" />
+          <TableColumn prefWidth="75.0" text="Cédula" />
+            <TableColumn prefWidth="75.0" text="Nombre" />
+            <TableColumn prefWidth="75.0" text="Apto" />
+            <TableColumn prefWidth="75.0" text="Apto" />
+            <TableColumn prefWidth="75.0" text="Correo" />
+            <TableColumn prefWidth="75.0" text="Teléfono" />
+            <TableColumn prefWidth="75.0" text="Saldo" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="87.0" layoutY="37.0" text="Propietarios">
+         <font>
+            <Font name="Bookman Old Style Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

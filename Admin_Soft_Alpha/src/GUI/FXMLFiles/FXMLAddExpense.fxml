@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.AddExpenseController">
+    <children>
+      <Label layoutX="72.0" layoutY="49.0" text="Agregar Gasto">
+         <font>
+            <Font name="Bookman Old Style Bold" size="24.0" />
+         </font></Label>
+      <TextField fx:id="txtValue" layoutX="72.0" layoutY="131.0" promptText="Valor" />
+      <DatePicker fx:id="dtpDatePay" layoutX="72.0" layoutY="188.0" promptText="Fecha de pago" />
+      <ComboBox fx:id="cmbConcept" layoutX="72.0" layoutY="234.0" prefWidth="150.0" promptText="Concepto" />
+      <ComboBox fx:id="cmbCompany" layoutX="72.0" layoutY="279.0" prefWidth="150.0" promptText="Entidad" />
+      <Button fx:id="btnAdd" layoutX="72.0" layoutY="333.0" mnemonicParsing="false" text="Aceptar" />
+   </children>
+</AnchorPane>
