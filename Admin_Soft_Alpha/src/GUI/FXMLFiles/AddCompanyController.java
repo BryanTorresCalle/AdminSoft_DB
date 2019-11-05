@@ -9,7 +9,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -39,7 +41,29 @@ public class AddCompanyController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        btnAdd.setOnAction(e -> onClick() );
+        //TODO cargar combobox del concepto 
     }    
+    
+    
+    public void onClick(){
+        
+        if(validateFields()){
+            // TODO Weas SQL
+            new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
+        }else{
+            new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
+        } 
+            
+        
+        
+        
+    }
+    
+    public boolean validateFields(){
+        
+        return !(txtNIT.getText().trim().equals("") || txtName.getText()== null || cmbConcept.getValue() == null );
+        
+    }
     
 }
