@@ -5,63 +5,92 @@
  */
 package Classes;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Usuario
  */
 public class Expense {
-    int id;
-    double value;
-    String paymentDate;
-    String idConcept;
-    String idCompany;
 
-    public int getId() {
+    private final StringProperty id;
+    private final DoubleProperty value;
+    private final StringProperty paymentDate;
+    private final StringProperty idConcept;
+    private final StringProperty idCompany;
+
+    public Expense() {
+        this(null, 0, null, null, null);
+    }
+
+    public Expense(String id, double value, String paymentDate, String idConcept, String idCompany) {
+        this.id = new SimpleStringProperty(id);
+        this.value = new SimpleDoubleProperty(value);
+        this.paymentDate = new SimpleStringProperty(paymentDate);
+        this.idConcept = new SimpleStringProperty(idConcept);
+        this.idCompany = new SimpleStringProperty(idCompany);
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
+    }
+
+    public StringProperty idProperty() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public double getValue() {
-        return value;
+        return value.get();
     }
 
     public void setValue(double value) {
-        this.value = value;
+        this.value.set(value);
+    }
+
+    public DoubleProperty valueProperty() {
+        return value;
     }
 
     public String getPaymentDate() {
-        return paymentDate;
+        return paymentDate.get();
     }
 
     public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
+        this.paymentDate.set(paymentDate);
+    }
+
+    public StringProperty PaymentDateProperty() {
+        return paymentDate;
     }
 
     public String getIdConcept() {
-        return idConcept;
+        return idConcept.get();
     }
 
     public void setIdConcept(String idConcept) {
-        this.idConcept = idConcept;
+        this.idConcept.set(idConcept);
+    }
+
+    public StringProperty idConceptProperty() {
+        return idConcept;
     }
 
     public String getIdCompany() {
-        return idCompany;
-    }
-
-    public void setIdCompany(String idCompany) {
-        this.idCompany = idCompany;
-    }
-
-    public Expense(int id, double value, String paymentDate, String idConcept, String idCompany) {
-        this.id = id;
-        this.value = value;
-        this.paymentDate = paymentDate;
-        this.idConcept = idConcept;
-        this.idCompany = idCompany;
+        return idCompany.get();
     }
     
+    public void setIdCompany(String idCompany){
+        this.idCompany.set(idCompany);
+    }
+    
+    public StringProperty idCompanyProperty(){
+        return idCompany;
+    }
 }
