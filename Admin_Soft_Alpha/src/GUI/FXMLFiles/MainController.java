@@ -33,6 +33,8 @@ public class MainController implements Initializable {
     private Button btnOwners;
     @FXML
     private Button btnCompanies;
+    @FXML
+    private Button btnConcepts;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +42,7 @@ public class MainController implements Initializable {
         btnExpenses.setOnAction(e -> toScreen("FXMLExpenses.fxml") );
         btnOwners.setOnAction(e -> toScreen("FXMLOwners.fxml") );
         btnCompanies.setOnAction(e -> toScreen("FXMLCompanies.fxml") );
+        btnConcepts.setOnAction(e -> toScreen("FXMLConcepts.fxml") );
     }
 
 
@@ -65,3 +68,4 @@ public class MainController implements Initializable {
     }
     
 }
+

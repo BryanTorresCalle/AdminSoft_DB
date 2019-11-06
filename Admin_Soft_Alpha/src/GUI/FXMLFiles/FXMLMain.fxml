@@ -26,5 +26,7 @@
       <Button fx:id="btnExpenses" layoutX="39.0" layoutY="185.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Gastos" />
       <Button fx:id="btnOwners" layoutX="39.0" layoutY="223.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Propietarios" />
       <Button fx:id="btnCompanies" layoutX="39.0" layoutY="261.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Empresas de servicios" wrapText="true" />
+      <Button fx:id="btnConcepts" layoutX="39.0" layoutY="300.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" text="Conceptos" wrapText="true" />
+      
    </children>
 </AnchorPane>
