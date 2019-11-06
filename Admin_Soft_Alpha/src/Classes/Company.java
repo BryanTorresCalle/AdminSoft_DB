@@ -23,7 +23,7 @@ public class Company {
            this.eMail = new SimpleStringProperty(correo);
            this.phone = new SimpleStringProperty(telefono);
     }
-    
+    //Test
     public String getId(){
         return id.get();
     }
