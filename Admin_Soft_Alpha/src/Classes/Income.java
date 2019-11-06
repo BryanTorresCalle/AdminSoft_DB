@@ -20,10 +20,10 @@ public class Income {
     private final IntegerProperty id;
     private final DoubleProperty value;
     private final StringProperty paymentDate;
-    private final IntegerProperty apartmentId;
+    private final IntegerProperty aptoId;
 
-    public Income(int id, double value, String paymentDate, int apartmentId){
-        this.apartmentId = new SimpleIntegerProperty(apartmentId);
+    public Income(int id, double value, String paymentDate, int aptoId){
+        this.aptoId = new SimpleIntegerProperty(aptoId);
         this.paymentDate = new SimpleStringProperty (paymentDate);
         this.id = new SimpleIntegerProperty(id);
         this.value = new SimpleDoubleProperty(value);
@@ -65,14 +65,14 @@ public class Income {
    }
    
    public int getApartmentId(){
-       return apartmentId.get();
+       return aptoId.get();
    }
    
-   public void setApartmentId(int apartmentId){
-       this.apartmentId.set(apartmentId);
+   public void setApartmentId(int aptoId){
+       this.aptoId.set(aptoId);
    }
    
-   public IntegerProperty apartmentIdProperty(){
-       return apartmentId;
+   public IntegerProperty aptoIdProperty(){
+       return aptoId;
    }
 }

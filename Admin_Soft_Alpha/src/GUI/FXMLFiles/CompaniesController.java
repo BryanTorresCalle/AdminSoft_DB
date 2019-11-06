@@ -66,7 +66,7 @@ public class CompaniesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddCompany.setOnAction(e -> toScreen("FXMLAddCompany.fxml"));
-        llenar();
+        fill();
     }
 
     public void toScreen(String screen) {
@@ -84,7 +84,7 @@ public class CompaniesController implements Initializable {
         }
     }
 
-    private void llenar() {
+    private void fill() {
         try {
             SQLProcedures con = new SQLProcedures();
             Connection connect = con.getConnection();
