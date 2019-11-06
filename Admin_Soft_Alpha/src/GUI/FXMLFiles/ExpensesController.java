@@ -86,7 +86,7 @@ public class ExpensesController implements Initializable {
             SQLProcedures con = new SQLProcedures();
             Connection connect = con.getConnection();
             data = FXCollections.observableArrayList();
-            ResultSet rs = connect.createStatement().executeQuery("Select * from gastos");
+            ResultSet rs = connect.createStatement().executeQuery("Select * from view_gastos");
             while (rs.next()) {
                 data.add(new Expense(rs.getString(1), Double.parseDouble(rs.getString(2)),
                         rs.getString(3), rs.getString(4), rs.getString(5)));
@@ -96,7 +96,7 @@ public class ExpensesController implements Initializable {
         }
         Id.setCellValueFactory(new PropertyValueFactory<>("id"));
         Valor.setCellValueFactory(new PropertyValueFactory<>("value"));
-        FechaPago.setCellValueFactory(new PropertyValueFactory<>("paymentdate"));
+        FechaPago.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
         Concepto.setCellValueFactory(new PropertyValueFactory<>("idConcept"));
         Entidad.setCellValueFactory(new PropertyValueFactory<>("idCompany"));
         tblExpenses.setItems(null);
