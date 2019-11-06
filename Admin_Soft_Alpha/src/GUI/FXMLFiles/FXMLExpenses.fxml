@@ -14,11 +14,11 @@
       <Button fx:id="btnDelExpense" layoutX="393.0" layoutY="99.0" mnemonicParsing="false" text="Eliminar gasto" />
       <TableView fx:id="tblExpenses" layoutX="80.0" layoutY="157.0" prefHeight="200.0" prefWidth="429.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Id" />
-          <TableColumn prefWidth="75.0" text="Valor" />
-            <TableColumn prefWidth="75.0" text="Fecha de Pago" />
-            <TableColumn prefWidth="75.0" text="Concepto" />
-            <TableColumn prefWidth="75.0" text="Entidad" />
+          <TableColumn fx:id="Id" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="Valor" prefWidth="75.0" text="Valor" />
+            <TableColumn fx:id="FechaPago" prefWidth="75.0" text="Fecha de Pago" />
+            <TableColumn fx:id="Concepto" prefWidth="75.0" text="Concepto" />
+            <TableColumn fx:id="Entidad" prefWidth="75.0" text="Entidad" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

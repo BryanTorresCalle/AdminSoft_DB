@@ -6,16 +6,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.FXMLFiles.ConceptsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.ConceptsController">
      <children>
       <Button fx:id="btnAddConcept" layoutX="80.0" layoutY="99.0" mnemonicParsing="false" text="Agregar concepto" />
       <Button fx:id="btnEditConcept" layoutX="240.0" layoutY="99.0" mnemonicParsing="false" text="Modificar concepto" />
       <Button fx:id="btnDelConcept" layoutX="393.0" layoutY="99.0" mnemonicParsing="false" text="Eliminar concepto" />
       <TableView fx:id="tblConcepts" layoutX="80.0" layoutY="157.0" prefHeight="200.0" prefWidth="429.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Id" />
-          <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Descripción" />
+          <TableColumn fx:id="Id" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="Nombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="Desc" prefWidth="75.0" text="Descripción" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
