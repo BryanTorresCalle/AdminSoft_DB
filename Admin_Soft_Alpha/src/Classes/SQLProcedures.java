@@ -15,10 +15,10 @@ import java.sql.SQLException;
  */
 public class SQLProcedures {
     
-    private Connection getConnection() throws ClassNotFoundException, SQLException{
+    public Connection getConnection() throws ClassNotFoundException, SQLException{
         
         Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/taller3def?"
+            String url = "jdbc:mysql://localhost:3306/dbedificio?"
                     + "useTimeZone=true&serverTimeZone=UTC";
             String user = "root";
             

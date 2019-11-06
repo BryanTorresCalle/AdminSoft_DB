@@ -41,7 +41,9 @@ public class MainController implements Initializable {
         btnIncomes.setOnAction(e -> toScreen("FXMLIncome.fxml") );
         btnExpenses.setOnAction(e -> toScreen("FXMLExpenses.fxml") );
         btnOwners.setOnAction(e -> toScreen("FXMLOwners.fxml") );
-        btnCompanies.setOnAction(e -> toScreen("FXMLCompanies.fxml") );
+        btnCompanies.setOnAction(e -> {
+            toScreen("FXMLCompanies.fxml");
+                });
         btnConcepts.setOnAction(e -> toScreen("FXMLConcepts.fxml") );
     }
 

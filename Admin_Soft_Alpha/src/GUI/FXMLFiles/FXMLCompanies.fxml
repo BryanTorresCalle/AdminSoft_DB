@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.FXMLFiles.CompaniesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.CompaniesController">
      <children>
       <Button fx:id="btnAddCompany" layoutX="80.0" layoutY="99.0" mnemonicParsing="false" text="Agregar empresa" />
       <Button fx:id="btnEditCompany" layoutX="240.0" layoutY="99.0" mnemonicParsing="false" text="Modificar empresa" />
@@ -17,7 +17,6 @@
           <TableColumn prefWidth="75.0" text="Id" />
           <TableColumn prefWidth="75.0" text="NIT" />
             <TableColumn prefWidth="75.0" text="Nombre" />
-            <TableColumn prefWidth="75.0" text="Concepto" />
             <TableColumn prefWidth="75.0" text="Teléfono" />
             <TableColumn prefWidth="75.0" text="Correo" />
         </columns>
@@ -32,4 +31,3 @@
          </font></Label>
    </children>
 </AnchorPane>
-
