@@ -12,7 +12,7 @@ public class Company {
     private final StringProperty id;
     private final StringProperty nit;
     private final StringProperty name;
-    private final StringProperty eMail;
+    private final StringProperty email;
     private final StringProperty phone;
 
    
@@ -20,7 +20,7 @@ public class Company {
            this.id = new SimpleStringProperty(id);
            this.nit = new SimpleStringProperty(nit);
            this.name = new SimpleStringProperty(nombre);
-           this.eMail = new SimpleStringProperty(correo);
+           this.email = new SimpleStringProperty(correo);
            this.phone = new SimpleStringProperty(telefono);
     }
     
@@ -61,15 +61,15 @@ public class Company {
         return name;
     }
     public String getEmail(){
-        return eMail.get();
+        return email.get();
     }
     
     public void setEmail(String eMail){
-        this.eMail.set(eMail);
+        this.email.set(eMail);
     }
     
     public StringProperty emailProperty(){
-        return eMail;
+        return email;
     }
     
     public String getPhone(){

@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLPermission;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,9 +46,17 @@ public class CompaniesController implements Initializable {
     @FXML
     private Button btnDelCompany;
     @FXML
-    private TableView<Company> tblCompanies;
-    ;    @FXML
-
+    private TableView<Company> tblCompnaies;
+    @FXML
+    private TableColumn<Company, String> Id;
+    @FXML
+    private TableColumn<Company, String> Nit;
+    @FXML
+    private TableColumn<Company, String> Nombre;
+    @FXML
+    private TableColumn<Company, String> Telefono;
+    @FXML
+    private TableColumn<Company, String> Correo;
 
     private ObservableList<Company> data;
 
@@ -56,6 +66,7 @@ public class CompaniesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddCompany.setOnAction(e -> toScreen("FXMLAddCompany.fxml"));
+        llenar();
     }
 
     public void toScreen(String screen) {
@@ -73,5 +84,25 @@ public class CompaniesController implements Initializable {
         }
     }
 
+    private void llenar() {
+        try {
+            SQLProcedures con = new SQLProcedures();
+            Connection connect = con.getConnection();
+            data = FXCollections.observableArrayList();
+            ResultSet rs = connect.createStatement().executeQuery("Select * from entidades");
+            while (rs.next()) {
+                data.add(new Company(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+            }
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+        Id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        Nit.setCellValueFactory(new PropertyValueFactory<>("nit"));
+        Nombre.setCellValueFactory(new PropertyValueFactory<>("name"));
+        Telefono.setCellValueFactory(new PropertyValueFactory<>("email"));
+        Correo.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        tblCompnaies.setItems(null);
+        tblCompnaies.setItems(data);
 
+    }
 }
