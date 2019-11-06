@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class SQLProcedures {
     
     public Connection getConnection() throws ClassNotFoundException, SQLException{
-        
         Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/dbedificio?"
                     + "useTimeZone=true&serverTimeZone=UTC";
