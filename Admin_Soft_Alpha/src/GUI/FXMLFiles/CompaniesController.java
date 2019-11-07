@@ -25,7 +25,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -78,10 +80,19 @@ public class CompaniesController implements Initializable {
         Telefono.setCellFactory(TextFieldTableCell.forTableColumn());
         Correo.setCellFactory(TextFieldTableCell.forTableColumn());
         
+        Company  compSelected = tblCompnaies.getSelectionModel().getSelectedItem();
+        
+        
+        
+        Nit.setOnEditCommit(e -> compSelected.setNit(e.getNewValue()));
+//        Nombre.setOnEditCommit(e -> compSelected.setName(e.getNewValue()));
+//        Correo.setOnEditCommit(e -> compSelected.setEmail(e.getNewValue()));
+//        Telefono.setOnEditCommit(e -> compSelected.setPhone(e.getNewValue()));
+        
         btnEditCompany.setOnAction(e -> {
-            Company compSelected = tblCompnaies.getSelectionModel().getSelectedItem();
             update(compSelected.getNit(), compSelected.getName(), compSelected.getEmail(), compSelected.getPhone(), compSelected.getId());
         });
+        
         
     }
 

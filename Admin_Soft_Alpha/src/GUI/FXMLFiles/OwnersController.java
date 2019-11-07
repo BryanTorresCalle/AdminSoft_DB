@@ -76,11 +76,12 @@ public class OwnersController implements Initializable {
             data = FXCollections.observableArrayList();
             ResultSet rs = connect.createStatement().executeQuery("Select * from entidades");
             while (rs.next()) {
-                data.add(new Owner(0, 0, name, eMail, phone))
+               // data.add(new Owner(0, 0, name, eMail, phone))
             }
         } catch (Exception ex) {
             System.out.println("Error: " + ex.toString());
         }
+        /*
         Id.setCellValueFactory(new PropertyValueFactory<>("id"));
         Nit.setCellValueFactory(new PropertyValueFactory<>("nit"));
         Nombre.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -88,7 +89,7 @@ public class OwnersController implements Initializable {
         Correo.setCellValueFactory(new PropertyValueFactory<>("phone"));
         tblCompnaies.setItems(null);
         tblCompnaies.setItems(data);
-
+*/
     }
 
 }
