@@ -59,7 +59,6 @@ public class ConceptsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnAddConcept.setOnAction(e -> toScreen("FXMLAddConcept.fxml"));
         btnRefresh.setOnAction(e -> fill());
-
         fill();
 
     }

@@ -64,6 +64,7 @@ public class ExpensesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnAddExpense.setOnAction(e -> toScreen("FXMLAddExpense.fxml"));
         btnRefresh.setOnAction(e -> fill());
+        btnEditExpense.setOnAction(e -> toScreen("FXMLUpExpense.fxml"));
         fill();
     }
 
