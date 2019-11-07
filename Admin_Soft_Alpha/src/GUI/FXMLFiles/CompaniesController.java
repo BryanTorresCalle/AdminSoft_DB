@@ -100,7 +100,7 @@ public class CompaniesController implements Initializable {
         }
     }
 
-    private void fill() {
+    public void fill() {
         try {
             
             Connection connect = con.getConnection();

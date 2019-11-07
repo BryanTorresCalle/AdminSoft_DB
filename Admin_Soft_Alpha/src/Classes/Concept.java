@@ -46,4 +46,8 @@ public class Concept {
     public StringProperty descriptionProperty(){
         return description;
     }
+    @Override
+    public String toString(){
+      return description.get();  
+    }
 }
