@@ -12,13 +12,13 @@
         <Button fx:id="btnAddCompany" layoutX="80.0" layoutY="99.0" mnemonicParsing="false" text="Agregar empresa" />
         <Button fx:id="btnEditCompany" layoutX="240.0" layoutY="99.0" mnemonicParsing="false" text="Modificar empresa" />
         <Button fx:id="btnDelCompany" layoutX="393.0" layoutY="99.0" mnemonicParsing="false" text="Eliminar empresa" />
-        <TableView fx:id="tblCompnaies" layoutX="80.0" layoutY="157.0" prefHeight="200.0" prefWidth="429.0">
+        <TableView fx:id="tblCompnaies" editable="true" layoutX="80.0" layoutY="157.0" prefHeight="200.0" prefWidth="429.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id" fx:id="Id" />
-                <TableColumn prefWidth="75.0" text="NIT" fx:id="Nit" />
-                <TableColumn prefWidth="75.0" text="Nombre" fx:id="Nombre" />
-                <TableColumn prefWidth="75.0" text="Teléfono" fx:id="Telefono" />
-                <TableColumn prefWidth="75.0" text="Correo" fx:id="Correo" />
+                <TableColumn fx:id="Id" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="Nit" prefWidth="75.0" text="NIT" />
+                <TableColumn fx:id="Nombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="Telefono" prefWidth="75.0" text="Teléfono" />
+                <TableColumn fx:id="Correo" prefWidth="75.0" text="Correo" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

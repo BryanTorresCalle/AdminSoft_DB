@@ -29,6 +29,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -59,6 +60,8 @@ public class CompaniesController implements Initializable {
     private TableColumn<Company, String> Correo;
 
     private ObservableList<Company> data;
+    
+    SQLProcedures con;
 
     /**
      * Initializes the controller class.
@@ -66,7 +69,20 @@ public class CompaniesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddCompany.setOnAction(e -> toScreen("FXMLAddCompany.fxml"));
+        con = new SQLProcedures();
+        data = FXCollections.observableArrayList();
         fill();
+        tblCompnaies.setEditable(true);
+        Nit.setCellFactory(TextFieldTableCell.forTableColumn());
+        Nombre.setCellFactory(TextFieldTableCell.forTableColumn());
+        Telefono.setCellFactory(TextFieldTableCell.forTableColumn());
+        Correo.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+        btnEditCompany.setOnAction(e -> {
+            Company compSelected = tblCompnaies.getSelectionModel().getSelectedItem();
+            update(compSelected.getNit(), compSelected.getName(), compSelected.getEmail(), compSelected.getPhone(), compSelected.getId());
+        });
+        
     }
 
     public void toScreen(String screen) {
@@ -86,9 +102,9 @@ public class CompaniesController implements Initializable {
 
     private void fill() {
         try {
-            SQLProcedures con = new SQLProcedures();
+            
             Connection connect = con.getConnection();
-            data = FXCollections.observableArrayList();
+            
             ResultSet rs = connect.createStatement().executeQuery("Select * from entidades");
             while (rs.next()) {
                 data.add(new Company(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
@@ -104,5 +120,19 @@ public class CompaniesController implements Initializable {
         tblCompnaies.setItems(null);
         tblCompnaies.setItems(data);
 
+    }
+    
+    private void update(String nit, String name, String mail, String phone, String id){
+        
+        try {
+            
+            Connection connect = con.getConnection();
+            connect.createStatement().executeUpdate("Update entidades set nit ="
+                    + " \'" + nit + "\', nombre= \'" + name + "\', correo= \'" +
+                    mail + "\', telefono= \'" + phone + "\' where id = " + id);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+        
     }
 }
