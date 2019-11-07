@@ -37,6 +37,8 @@ public class ExpensesController implements Initializable {
     @FXML
     private Button btnAddExpense;
     @FXML
+    private Button btnRefresh;
+    @FXML
     private Button btnEditExpense;
     @FXML
     private Button btnDelExpense;
@@ -61,6 +63,7 @@ public class ExpensesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddExpense.setOnAction(e -> toScreen("FXMLAddExpense.fxml"));
+        btnRefresh.setOnAction(e -> fill());
         fill();
     }
 

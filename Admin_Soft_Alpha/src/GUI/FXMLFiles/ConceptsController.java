@@ -39,6 +39,8 @@ public class ConceptsController implements Initializable {
     @FXML
     private Button btnEditConcept;
     @FXML
+    private Button btnRefresh;
+    @FXML
     private Button btnDelConcept;
     @FXML
     private TableView tblConcepts;
@@ -56,6 +58,8 @@ public class ConceptsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddConcept.setOnAction(e -> toScreen("FXMLAddConcept.fxml"));
+        btnRefresh.setOnAction(e -> fill());
+
         fill();
 
     }

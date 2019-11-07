@@ -38,7 +38,7 @@ public class AddIncomeController implements Initializable {
     @FXML
     private DatePicker dtpDatePay;
     @FXML
-    private ComboBox cmbApto;
+    private ComboBox<Apartment> cmbApto;
     @FXML
     private Button btnAdd;
     private ObservableList<Apartment> data;
@@ -58,7 +58,7 @@ public class AddIncomeController implements Initializable {
             SQLProcedures sql = new SQLProcedures();
             sql.insertIncome(Integer.parseInt(txtId.getText()),
                     Double.parseDouble(txtValue.getText()), dtpDatePay.getValue().toString(),
-                    Integer.parseInt(cmbApto.getValue().toString()));
+                    Integer.parseInt(cmbApto.getValue().getId()));
             clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
         } else {

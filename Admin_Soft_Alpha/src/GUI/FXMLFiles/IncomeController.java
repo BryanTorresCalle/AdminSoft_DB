@@ -41,9 +41,11 @@ public class IncomeController implements Initializable {
     @FXML
     private Button btnDelIncome;
     @FXML
+    private Button btnRefresh;
+    @FXML
     private TableView tblIncomes;
-    
-     @FXML
+
+    @FXML
     private TableColumn<Company, String> Id;
     @FXML
     private TableColumn<Company, String> Valor;
@@ -51,37 +53,38 @@ public class IncomeController implements Initializable {
     private TableColumn<Company, String> FechaPago;
     @FXML
     private TableColumn<Company, String> Apto;
-    
-    
+
     private ObservableList<Income> data;
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml") );
+        btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml"));
+        btnRefresh.setOnAction(e -> fill());
+
         fill();
-    }    
-    
-     public void toScreen(String screen){     
-          
-            try {
-                
-                FXMLLoader fXMLLoader = new FXMLLoader();
-                fXMLLoader.setLocation(getClass().getResource(screen));
-                Stage stage = new Stage();
-                stage.setScene(new Scene(fXMLLoader.load(), 600, 400));
-                stage.show();
-                
-            } catch (IOException ex) {
-                
-                Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-        
     }
-     
-     private void fill() {
+
+    public void toScreen(String screen) {
+
+        try {
+
+            FXMLLoader fXMLLoader = new FXMLLoader();
+            fXMLLoader.setLocation(getClass().getResource(screen));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fXMLLoader.load(), 600, 400));
+            stage.show();
+
+        } catch (IOException ex) {
+
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void fill() {
         try {
             SQLProcedures con = new SQLProcedures();
             Connection connect = con.getConnection();
@@ -101,5 +104,5 @@ public class IncomeController implements Initializable {
         tblIncomes.setItems(data);
 
     }
-    
+
 }

@@ -43,20 +43,20 @@ public class OwnersController implements Initializable {
     @FXML
     private TableView<Owner> tblOwners;
     @FXML
-    private TableColumn<Owner,Integer> Id;
+    private TableColumn<Owner, Integer> Id;
     @FXML
-    private TableColumn<Owner,Integer> Cedula;
+    private TableColumn<Owner, Integer> Cedula;
     @FXML
-    private TableColumn<Owner,String> Nombre;
+    private TableColumn<Owner, String> Nombre;
     @FXML
-    private TableColumn<Owner,String> Apto;
+    private TableColumn<Owner, String> Apto;
     @FXML
-    private TableColumn<Owner,String> Correo;
+    private TableColumn<Owner, String> Correo;
     @FXML
-    private TableColumn<Owner,String> Telefono;
+    private TableColumn<Owner, String> Telefono;
     @FXML
-    private TableColumn<Owner,Integer> Saldo;
-    
+    private TableColumn<Owner, Integer> Saldo;
+
     private ObservableList<Owner> data;
 
     /**
@@ -65,6 +65,7 @@ public class OwnersController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddOwner.setOnAction(e -> toScreen("FXMLAddOwner.fxml"));
+       // btnRefresh.setOnAction(e -> fill());
     }
 
     public void toScreen(String screen) {
@@ -84,5 +85,4 @@ public class OwnersController implements Initializable {
 
     }
 
-  
 }
