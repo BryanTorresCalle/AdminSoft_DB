@@ -71,6 +71,7 @@ public class CompaniesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddCompany.setOnAction(e -> toScreen("FXMLAddCompany.fxml"));
+        btnEditCompany.setOnAction(e -> toScreen("FXMLUpCompany.fxml"));
         con = new SQLProcedures();
         data = FXCollections.observableArrayList();
         fill();

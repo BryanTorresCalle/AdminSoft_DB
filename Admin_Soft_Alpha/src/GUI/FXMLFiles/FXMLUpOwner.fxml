@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.UpOwnerController">
+    <children>
+      <Label layoutX="72.0" layoutY="49.0" text="Modificar Propietario">
+         
+      </Label>
+    <TextField fx:id="txtID" layoutX="72.0" layoutY="131.0" promptText="Cédula" />
+      <ComboBox fx:id="cmbApto" layoutX="72.0" layoutY="209.0" prefWidth="150.0" promptText="Apto" />
+      <TextField fx:id="txtName"  layoutX="72.0" layoutY="168.0" promptText="Nombre" />
+      <TextField fx:id="txtPhone" layoutX="73.0" layoutY="245.0" promptText="Telefono" />
+      <TextField fx:id="txtMail" layoutX="72.0" layoutY="281.0" promptText="Correo electrónico" />
+      <Button fx:id="btnAdd" layoutX="74.0" layoutY="313.0" mnemonicParsing="false" text="Aceptar" />
+   </children>
+</AnchorPane>

@@ -65,6 +65,7 @@ public class OwnersController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddOwner.setOnAction(e -> toScreen("FXMLAddOwner.fxml"));
+        btnEditOwner.setOnAction(e -> toScreen("FXMLUpOwner.fxml"));
     }
 
     public void toScreen(String screen) {

@@ -61,6 +61,7 @@ public class IncomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml") );
+        btnEditIncome.setOnAction(e -> toScreen("FXMLUpIncome.fxml") );
         fill();
     }    
     
