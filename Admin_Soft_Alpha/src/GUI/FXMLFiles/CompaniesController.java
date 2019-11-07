@@ -115,8 +115,8 @@ public class CompaniesController implements Initializable {
         Id.setCellValueFactory(new PropertyValueFactory<>("id"));
         Nit.setCellValueFactory(new PropertyValueFactory<>("nit"));
         Nombre.setCellValueFactory(new PropertyValueFactory<>("name"));
-        Telefono.setCellValueFactory(new PropertyValueFactory<>("email"));
-        Correo.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        Telefono.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        Correo.setCellValueFactory(new PropertyValueFactory<>("email"));
         tblCompnaies.setItems(null);
         tblCompnaies.setItems(data);
 

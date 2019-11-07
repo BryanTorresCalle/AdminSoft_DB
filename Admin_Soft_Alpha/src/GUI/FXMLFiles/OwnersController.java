@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -40,7 +41,23 @@ public class OwnersController implements Initializable {
     @FXML
     private Button btnDelOwner;
     @FXML
-    private TableView tblOwners;
+    private TableView<Owner> tblOwners;
+    @FXML
+    private TableColumn<Owner,Integer> Id;
+    @FXML
+    private TableColumn<Owner,Integer> Cedula;
+    @FXML
+    private TableColumn<Owner,String> Nombre;
+    @FXML
+    private TableColumn<Owner,String> Apto;
+    @FXML
+    private TableColumn<Owner,String> Correo;
+    @FXML
+    private TableColumn<Owner,String> Telefono;
+    @FXML
+    private TableColumn<Owner,Integer> Saldo;
+    
+    
 
     private ObservableList<Owner> data;
 
@@ -69,26 +86,6 @@ public class OwnersController implements Initializable {
 
     }
 
-    public void fill() {
-        try {
-            SQLProcedures con = new SQLProcedures();
-            Connection connect = con.getConnection();
-            data = FXCollections.observableArrayList();
-            ResultSet rs = connect.createStatement().executeQuery("Select * from entidades");
-            while (rs.next()) {
-                data.add(new Owner(0, 0, name, eMail, phone))
-            }
-        } catch (Exception ex) {
-            System.out.println("Error: " + ex.toString());
-        }
-        Id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        Nit.setCellValueFactory(new PropertyValueFactory<>("nit"));
-        Nombre.setCellValueFactory(new PropertyValueFactory<>("name"));
-        Telefono.setCellValueFactory(new PropertyValueFactory<>("email"));
-        Correo.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        tblCompnaies.setItems(null);
-        tblCompnaies.setItems(data);
-
-    }
+    
 
 }

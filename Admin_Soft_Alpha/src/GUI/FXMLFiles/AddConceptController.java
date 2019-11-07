@@ -5,6 +5,7 @@
  */
 package GUI.FXMLFiles;
 
+import Classes.SQLProcedures;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -24,35 +25,38 @@ public class AddConceptController implements Initializable {
     @FXML
     private TextField txtName;
     @FXML
-    private TextField txtDesc;
+    private TextField txtId;
     @FXML
     private Button btnAdd;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnAdd.setOnAction(e -> onClick() );
-    }    
-    
-     public void onClick(){
-        
-        if(validateFields()){
-            // TODO Weas SQL
+        btnAdd.setOnAction(e -> onClick());
+    }
+
+    public void onClick() {
+
+        if (validateFields()) {
+            SQLProcedures sql = new SQLProcedures();
+            sql.insertConcept(Integer.parseInt(txtId.getText()), txtName.getText());
+            clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
-        }else{
+        } else {
             new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
-        } 
-            
-        
-        
-        
+        }
     }
-    
-    public boolean validateFields(){
-        
-        return !(txtDesc.getText().trim().equals("") || txtName.getText()== null);
-        
+
+    private void clearFields() {
+        txtId.clear();
+        txtName.clear();
     }
-    
+
+    public boolean validateFields() {
+        return !(txtName.getText().trim().equals("") || txtId.getText() == null);
+
+    }
+
 }
