@@ -84,7 +84,10 @@ public class Company {
         return phone;
     }
     
-    
+    @Override
+    public String toString(){
+        return name.get();
+    }
     
 
 }

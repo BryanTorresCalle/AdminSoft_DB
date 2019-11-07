@@ -5,6 +5,7 @@
  */
 package GUI.FXMLFiles;
 
+import Classes.SQLProcedures;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -28,6 +29,8 @@ public class AddIncomeController implements Initializable {
     @FXML
     private TextField txtValue;
     @FXML
+    private TextField txtId;
+    @FXML
     private DatePicker dtpDatePay;
     @FXML
     private ComboBox cmbApto;
@@ -48,14 +51,15 @@ public class AddIncomeController implements Initializable {
     public void onClick(){
         
         if(validateFields()){
-            // TODO Weas SQL
+            SQLProcedures sql = new SQLProcedures();
+            sql.insertIncome(Integer.parseInt(txtId.getText()),
+                    Double.parseDouble(txtValue.getText()),dtpDatePay.getValue().toString(),
+                    Integer.parseInt(cmbApto.getValue().toString()));
+            clearFields();
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
         }else{
             new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
         } 
-            
-        
-        
         
     }
     
@@ -63,6 +67,11 @@ public class AddIncomeController implements Initializable {
         
         return !(txtValue.getText().trim().equals("") || dtpDatePay.getValue() == null || cmbApto.getValue() == null );
         
+    }
+
+    private void clearFields() {
+        txtId.clear();
+        txtValue.clear();
     }
     
 }

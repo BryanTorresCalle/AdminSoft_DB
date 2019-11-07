@@ -13,10 +13,11 @@
          <font>
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font></Label>
-      <TextField fx:id="txtValue" layoutX="72.0" layoutY="131.0" promptText="Valor" />
+      <TextField fx:id="txtValue" layoutX="72.0" layoutY="142.0" promptText="Valor" />
       <DatePicker fx:id="dtpDatePay" layoutX="72.0" layoutY="188.0" promptText="Fecha de pago" />
       <ComboBox fx:id="cmbConcept" layoutX="72.0" layoutY="234.0" prefWidth="150.0" promptText="Concepto" />
       <ComboBox fx:id="cmbCompany" layoutX="72.0" layoutY="279.0" prefWidth="150.0" promptText="Entidad" />
       <Button fx:id="btnAdd" layoutX="72.0" layoutY="333.0" mnemonicParsing="false" text="Aceptar" />
+      <TextField fx:id="txtId" layoutX="72.0" layoutY="97.0" promptText="ID" />
    </children>
 </AnchorPane>

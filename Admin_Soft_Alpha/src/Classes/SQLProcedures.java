@@ -50,4 +50,26 @@ public class SQLProcedures {
             System.out.println("Error: " + ex.toString());
         }
     }
+    
+    public void insertExpense(String id,double value,String paymentDate,int idConcept,String idCompany){
+        try {
+            Connection conect = getConnection();
+            String sql = "insert into gastos(id,valor,fechaPago,idConcepto,idEntidad)"
+                    + " values('" + id + "','" + value + "','"+paymentDate+"','"+idConcept+"','"+idCompany+"')";
+            conect.createStatement().executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+    }
+    
+    public void insertIncome(int id,double value,String paymentDate,int aptoId){
+        try {
+            Connection conect = getConnection();
+            String sql = "insert into ingresos(id,valor,fechaPago,idApto) values"
+                    + "('"+id+"','"+value+"','"+paymentDate+"','"+aptoId+"')";
+            conect.createStatement().executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+    }
 }
