@@ -38,7 +38,6 @@ public class SQLProcedures {
         } catch (Exception ex) {
             System.out.println("Error: "+ex.toString());
         }
-        
     }
     
     

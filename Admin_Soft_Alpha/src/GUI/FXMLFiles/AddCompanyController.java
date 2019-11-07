@@ -60,14 +60,14 @@ public class AddCompanyController implements Initializable {
             SQLProcedures proc = new SQLProcedures();
            proc.insertCompany(txtID.getText(), txtNIT.getText(), txtName.getText(),
                    txtMail.getText(),txtPhone.getText(),cmbConcept.getValue().getId());
-           
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
         }
 
     }
-
+    
+    
     public boolean validateFields() {
 
         return !(txtNIT.getText().trim().equals("") || txtName.getText() == null

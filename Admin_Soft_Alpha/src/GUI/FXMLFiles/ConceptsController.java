@@ -91,7 +91,6 @@ public class ConceptsController implements Initializable {
         Nombre.setCellValueFactory(new PropertyValueFactory<>("description"));
         tblConcepts.setItems(null);
         tblConcepts.setItems(data);
-
     }
 
 }
