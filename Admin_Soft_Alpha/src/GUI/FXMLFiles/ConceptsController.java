@@ -7,7 +7,9 @@ package GUI.FXMLFiles;
 
 import Classes.Company;
 import Classes.Concept;
+import Classes.Expense;
 import Classes.SQLProcedures;
+import static GUI.FXMLFiles.ExpensesController.selected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -43,7 +45,7 @@ public class ConceptsController implements Initializable {
     @FXML
     private Button btnDelConcept;
     @FXML
-    private TableView tblConcepts;
+    private TableView<Concept> tblConcepts;
     @FXML
     private TableColumn<Concept, String> Id;
     @FXML
@@ -51,6 +53,8 @@ public class ConceptsController implements Initializable {
     @FXML
 
     private ObservableList<Concept> data;
+    
+    public static Concept selected;
 
     /**
      * Initializes the controller class.
@@ -58,7 +62,10 @@ public class ConceptsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btnAddConcept.setOnAction(e -> toScreen("FXMLAddConcept.fxml"));
-        btnEditConcept.setOnAction(e -> toScreen("FXMLUpConcept.fxml"));
+         btnEditConcept.setOnAction(e -> {
+            selected = tblConcepts.getSelectionModel().getSelectedItem();
+            toScreen("FXMLUpConcept.fxml");
+        });
         btnRefresh.setOnAction(e -> fill());
         fill();
         

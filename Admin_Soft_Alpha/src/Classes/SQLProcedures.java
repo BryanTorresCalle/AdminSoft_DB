@@ -82,4 +82,17 @@ public class SQLProcedures {
             System.out.println("Error: " + ex.toString());
         }
     }
+    
+    public void del(String table, int id){
+        try {
+            Connection conect = getConnection();
+            String sql = "delete  from " + table + "where id=" + id;
+            conect.createStatement().executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println("Error: "+ ex.toString());
+        } 
+        
+        
+        
+    }
 }
