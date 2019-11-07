@@ -84,7 +84,7 @@ public class CompaniesController implements Initializable {
         }
     }
 
-    private void fill() {
+    public void fill() {
         try {
             SQLProcedures con = new SQLProcedures();
             Connection connect = con.getConnection();

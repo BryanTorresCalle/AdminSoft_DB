@@ -61,9 +61,7 @@ public class ConceptsController implements Initializable {
     }
 
     public void toScreen(String screen) {
-
         try {
-
             FXMLLoader fXMLLoader = new FXMLLoader();
             fXMLLoader.setLocation(getClass().getResource(screen));
             Stage stage = new Stage();

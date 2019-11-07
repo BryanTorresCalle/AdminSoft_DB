@@ -5,8 +5,15 @@
  */
 package GUI.FXMLFiles;
 
+import Classes.Company;
+import Classes.Concept;
+import Classes.SQLProcedures;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -22,49 +29,65 @@ import javafx.scene.control.TextField;
  * @author ACER
  */
 public class AddCompanyController implements Initializable {
-    
+    @FXML
+    private TextField txtID;
     @FXML
     private TextField txtNIT;
     @FXML
     private TextField txtName;
     @FXML
-    private ComboBox cmbConcept;
+    private ComboBox<Concept> cmbConcept;
     @FXML
     private TextField txtPhone;
     @FXML
     private TextField txtMail;
     @FXML
     private Button btnAdd;
+    private ObservableList<Concept> data;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnAdd.setOnAction(e -> onClick() );
-        //TODO cargar combobox del concepto 
-    }    
-    
-    
-    public void onClick(){
-        
-        if(validateFields()){
-            // TODO Weas SQL
-            new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
-        }else{
-            new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
-        } 
-            
-        
-        
-        
+        btnAdd.setOnAction(e -> onClick());
+        fillCmb();
     }
-    
-    public boolean validateFields(){
-        
-        return !(txtNIT.getText().trim().equals("") || txtName.getText()== null 
-                || cmbConcept.getValue() == null || txtPhone.getText()== null || txtMail.getText()== null);
-        
+
+    public void onClick() {
+
+        if (validateFields()) {
+            SQLProcedures proc = new SQLProcedures();
+           proc.insertCompany(txtID.getText(), txtNIT.getText(), txtName.getText(),
+                   txtMail.getText(),txtPhone.getText(),cmbConcept.getValue().getId());
+           
+            new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
+        }
+
+    }
+
+    public boolean validateFields() {
+
+        return !(txtNIT.getText().trim().equals("") || txtName.getText() == null
+                || cmbConcept.getValue() == null || txtPhone.getText() == null || txtMail.getText() == null);
+
+    }
+
+    private void fillCmb() {
+        try {
+            SQLProcedures con = new SQLProcedures();
+            Connection connect = con.getConnection();
+            data = FXCollections.observableArrayList();
+            ResultSet rs = connect.createStatement().executeQuery("Select * from conceptos");
+            while (rs.next()) {
+                data.add(new Concept(Integer.parseInt(rs.getString(1)),rs.getString(2)));
+            }
+            cmbConcept.setItems(data);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
     }
     
 }
