@@ -66,15 +66,23 @@ public class CompaniesController implements Initializable {
     private ObservableList<Company> data;
     
     SQLProcedures con;
+    
+    public static Company compSelected;
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public  void initialize(URL url, ResourceBundle rb) {
         btnAddCompany.setOnAction(e -> toScreen("FXMLAddCompany.fxml"));
         btnRefresh.setOnAction(e -> fill());
-        btnEditCompany.setOnAction(e -> toScreen("FXMLUpCompany.fxml"));
+        
+        btnEditCompany.setOnAction(e -> {
+            compSelected = tblCompnaies.getSelectionModel().getSelectedItem();
+            toScreen("FXMLUpCompany.fxml");
+        });
+        
+        
         con = new SQLProcedures();
         data = FXCollections.observableArrayList();
         fill();
@@ -118,17 +126,5 @@ public class CompaniesController implements Initializable {
 
     }
     
-    private void update(String nit, String name, String mail, String phone, String id){
-        
-        try {
-            
-            Connection connect = con.getConnection();
-            connect.createStatement().executeUpdate("Update entidades set nit ="
-                    + " \'" + nit + "\', nombre= \'" + name + "\', correo= \'" +
-                    mail + "\', telefono= \'" + phone + "\' where id = " + id);
-        } catch (Exception ex) {
-            System.out.println("Error: " + ex.toString());
-        }
-        
-    }
+
 }

@@ -8,6 +8,7 @@ package GUI.FXMLFiles;
 import Classes.Company;
 import Classes.Expense;
 import Classes.SQLProcedures;
+import static GUI.FXMLFiles.CompaniesController.compSelected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -43,7 +44,7 @@ public class ExpensesController implements Initializable {
     @FXML
     private Button btnDelExpense;
     @FXML
-    private TableView tblExpenses;
+    private TableView<Expense> tblExpenses;
     @FXML
     private TableColumn<Expense, Integer> Id;
     @FXML
@@ -56,6 +57,8 @@ public class ExpensesController implements Initializable {
     private TableColumn<Expense, String> Entidad;
 
     private ObservableList<Expense> data;
+    
+    public static Expense selected;
 
     /**
      * Initializes the controller class.
@@ -64,7 +67,10 @@ public class ExpensesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnAddExpense.setOnAction(e -> toScreen("FXMLAddExpense.fxml"));
         btnRefresh.setOnAction(e -> fill());
-        btnEditExpense.setOnAction(e -> toScreen("FXMLUpExpense.fxml"));
+        btnEditExpense.setOnAction(e -> {
+            selected = tblExpenses.getSelectionModel().getSelectedItem();
+            toScreen("FXMLUpExpense.fxml");
+        });
         fill();
     }
 

@@ -8,6 +8,7 @@ package GUI.FXMLFiles;
 import Classes.Company;
 import Classes.Income;
 import Classes.SQLProcedures;
+import static GUI.FXMLFiles.CompaniesController.compSelected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -43,7 +44,7 @@ public class IncomeController implements Initializable {
     @FXML
     private Button btnRefresh;
     @FXML
-    private TableView tblIncomes;
+    private TableView<Income> tblIncomes;
 
     @FXML
     private TableColumn<Company, String> Id;
@@ -55,6 +56,8 @@ public class IncomeController implements Initializable {
     private TableColumn<Company, String> Apto;
 
     private ObservableList<Income> data;
+    
+    public static Income selected;
 
     /**
      * Initializes the controller class.
@@ -63,8 +66,13 @@ public class IncomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml"));
         btnRefresh.setOnAction(e -> fill());
-        btnAddIncome.setOnAction(e -> toScreen("FXMLAddIncome.fxml") );
-        btnEditIncome.setOnAction(e -> toScreen("FXMLUpIncome.fxml") );
+        
+        btnEditIncome.setOnAction(e -> {
+            selected = tblIncomes.getSelectionModel().getSelectedItem();
+            toScreen("FXMLUpIncome.fxml");
+        });
+        
+        
         fill();
     }
 
