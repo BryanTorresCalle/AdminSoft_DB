@@ -7,6 +7,8 @@ package GUI.FXMLFiles;
 
 import Classes.Company;
 import Classes.SQLProcedures;
+import static GUI.FXMLFiles.ExpensesController.selected;
+import static GUI.FXMLFiles.IncomeController.selected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -65,7 +67,7 @@ public class CompaniesController implements Initializable {
 
     private ObservableList<Company> data;
     
-    SQLProcedures con;
+    SQLProcedures con = new SQLProcedures();
     
     public static Company compSelected;
 
@@ -82,8 +84,10 @@ public class CompaniesController implements Initializable {
             toScreen("FXMLUpCompany.fxml");
         });
         
+        btnDelCompany.setOnAction(e -> con.del("entidades", Integer.parseInt(compSelected.getId()) ));
         
-        con = new SQLProcedures();
+        
+        
         data = FXCollections.observableArrayList();
         fill();
         

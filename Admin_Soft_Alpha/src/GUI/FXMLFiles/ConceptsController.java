@@ -10,6 +10,7 @@ import Classes.Concept;
 import Classes.Expense;
 import Classes.SQLProcedures;
 import static GUI.FXMLFiles.ExpensesController.selected;
+import static GUI.FXMLFiles.IncomeController.selected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -55,6 +56,7 @@ public class ConceptsController implements Initializable {
     private ObservableList<Concept> data;
     
     public static Concept selected;
+    SQLProcedures con = new SQLProcedures();
 
     /**
      * Initializes the controller class.
@@ -66,6 +68,9 @@ public class ConceptsController implements Initializable {
             selected = tblConcepts.getSelectionModel().getSelectedItem();
             toScreen("FXMLUpConcept.fxml");
         });
+        
+         btnDelConcept.setOnAction(e -> con.del("conceptos", selected.getId()));
+         
         btnRefresh.setOnAction(e -> fill());
         fill();
         
@@ -88,7 +93,7 @@ public class ConceptsController implements Initializable {
 
     private void fill() {
         try {
-            SQLProcedures con = new SQLProcedures();
+            
             Connection connect = con.getConnection();
             data = FXCollections.observableArrayList();
             ResultSet rs = connect.createStatement().executeQuery("Select * from conceptos");

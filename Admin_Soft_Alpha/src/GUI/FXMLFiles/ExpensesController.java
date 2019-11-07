@@ -9,6 +9,7 @@ import Classes.Company;
 import Classes.Expense;
 import Classes.SQLProcedures;
 import static GUI.FXMLFiles.CompaniesController.compSelected;
+import static GUI.FXMLFiles.IncomeController.selected;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -59,6 +60,8 @@ public class ExpensesController implements Initializable {
     private ObservableList<Expense> data;
     
     public static Expense selected;
+    
+    SQLProcedures con = new SQLProcedures();
 
     /**
      * Initializes the controller class.
@@ -71,6 +74,7 @@ public class ExpensesController implements Initializable {
             selected = tblExpenses.getSelectionModel().getSelectedItem();
             toScreen("FXMLUpExpense.fxml");
         });
+        btnDelExpense.setOnAction(e -> con.del("gastos", Integer.parseInt(selected.getId())));
         fill();
     }
 
@@ -93,7 +97,7 @@ public class ExpensesController implements Initializable {
 
     private void fill() {
         try {
-            SQLProcedures con = new SQLProcedures();
+            
             Connection connect = con.getConnection();
             data = FXCollections.observableArrayList();
             ResultSet rs = connect.createStatement().executeQuery("Select * from view_gastos");

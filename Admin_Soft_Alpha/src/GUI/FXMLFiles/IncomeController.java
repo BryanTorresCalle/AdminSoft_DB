@@ -58,6 +58,7 @@ public class IncomeController implements Initializable {
     private ObservableList<Income> data;
     
     public static Income selected;
+    SQLProcedures con = new SQLProcedures();
 
     /**
      * Initializes the controller class.
@@ -72,7 +73,7 @@ public class IncomeController implements Initializable {
             toScreen("FXMLUpIncome.fxml");
         });
         
-        
+        btnDelIncome.setOnAction(e -> con.del("ingresos", tblIncomes.getSelectionModel().getSelectedItem().getId()));
         fill();
     }
 
@@ -95,7 +96,7 @@ public class IncomeController implements Initializable {
 
     private void fill() {
         try {
-            SQLProcedures con = new SQLProcedures();
+            
             Connection connect = con.getConnection();
             data = FXCollections.observableArrayList();
             ResultSet rs = connect.createStatement().executeQuery("Select * from ingresos");
