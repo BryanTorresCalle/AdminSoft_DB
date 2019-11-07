@@ -6,12 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLFiles.AddConceptController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="GUI.FXMLFiles.AddConceptController">
      <children>
       <Label layoutX="72.0" layoutY="49.0" text="Agregar Concepto">
          </Label>
-      <TextField fx:id="txtDesc" layoutX="72.0" layoutY="160.0" promptText="Descripcion" />
-      <TextField fx:id="txtName"  layoutX="72.0" layoutY="130.0" promptText="Nombre" />
+      <TextField fx:id="txtName" layoutX="72.0" layoutY="160.0" promptText="Nombre" />
+      <TextField fx:id="txtId" layoutX="72.0" layoutY="130.0" promptText="ID" />
       <Button fx:id="btnAdd" layoutX="74.0" layoutY="313.0" mnemonicParsing="false" text="Aceptar" />
    </children>
 </AnchorPane>

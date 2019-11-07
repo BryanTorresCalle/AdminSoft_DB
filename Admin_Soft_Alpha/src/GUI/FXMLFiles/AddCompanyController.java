@@ -61,6 +61,7 @@ public class AddCompanyController implements Initializable {
            proc.insertCompany(txtID.getText(), txtNIT.getText(), txtName.getText(),
                    txtMail.getText(),txtPhone.getText(),cmbConcept.getValue().getId());
             new Alert(Alert.AlertType.INFORMATION, "Agregado correctamente :D", ButtonType.OK).show();
+            clearFields();
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Faltan campos por rellenar", ButtonType.OK).show();
         }
@@ -89,5 +90,14 @@ public class AddCompanyController implements Initializable {
             System.out.println("Error: " + ex.toString());
         }
     }
+
+    private void clearFields() {
+        txtID.clear();
+        txtMail.clear();
+        txtNIT.clear();
+        txtName.clear();
+        txtPhone.clear();
+    }
+    
     
 }

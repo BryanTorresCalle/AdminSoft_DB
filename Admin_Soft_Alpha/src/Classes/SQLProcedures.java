@@ -17,29 +17,37 @@ import java.util.logging.Logger;
  * @author Usuario
  */
 public class SQLProcedures {
-    
-    public Connection getConnection() throws ClassNotFoundException, SQLException{
+
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/dbedificio?"
-                    + "useTimeZone=true&serverTimeZone=UTC";
-            String user = "root";
-            
-            Connection myCon = DriverManager.getConnection(url,user,"");
-            return myCon;
+        String url = "jdbc:mysql://localhost:3306/dbedificio?"
+                + "useTimeZone=true&serverTimeZone=UTC";
+        String user = "root";
+
+        Connection myCon = DriverManager.getConnection(url, user, "");
+        return myCon;
     }
-    public void insertCompany(String id,String nit,String nombre,String correo,String telefono,int concept){
+
+    public void insertCompany(String id, String nit, String name, String email, String phone, int concept) {
         try {
             Connection conect = getConnection();
-            String sql = "Insert into entidades(id,nit,nombre,correo,telefono) values ('"+id+"','"+nit+"','"+nombre+"','"+correo+"','"+telefono+"')";
-            String sql2 = "insert into conceptos_entidades(idConcepto,idEntidad) values ('"+concept+"','"+id+"')";
+            String sql = "Insert into entidades(id,nit,nombre,correo,telefono) values ('" + id + "','" + nit + "','" + name + "','" + email + "','" + phone + "')";
+            String sql2 = "insert into conceptos_entidades(idConcepto,idEntidad) values ('" + concept + "','" + id + "')";
             conect.createStatement().executeUpdate(sql);
             conect.createStatement().executeUpdate(sql2);
-            
+
         } catch (Exception ex) {
-            System.out.println("Error: "+ex.toString());
+            System.out.println("Error: " + ex.toString());
         }
     }
-    
-    
-    
+
+    public void insertConcept(int id, String name) {
+        try {
+            Connection conect = getConnection();
+            String sql = "insert into conceptos(id,nombre) values('" + id + "','" + name + "')";
+            conect.createStatement().executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
+        }
+    }
 }
