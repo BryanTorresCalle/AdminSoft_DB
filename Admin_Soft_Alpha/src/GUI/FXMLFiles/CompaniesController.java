@@ -74,25 +74,6 @@ public class CompaniesController implements Initializable {
         con = new SQLProcedures();
         data = FXCollections.observableArrayList();
         fill();
-        tblCompnaies.setEditable(true);
-        Nit.setCellFactory(TextFieldTableCell.forTableColumn());
-        Nombre.setCellFactory(TextFieldTableCell.forTableColumn());
-        Telefono.setCellFactory(TextFieldTableCell.forTableColumn());
-        Correo.setCellFactory(TextFieldTableCell.forTableColumn());
-        
-        Company  compSelected = tblCompnaies.getSelectionModel().getSelectedItem();
-        
-        
-        
-        Nit.setOnEditCommit(e -> compSelected.setNit(e.getNewValue()));
-//        Nombre.setOnEditCommit(e -> compSelected.setName(e.getNewValue()));
-//        Correo.setOnEditCommit(e -> compSelected.setEmail(e.getNewValue()));
-//        Telefono.setOnEditCommit(e -> compSelected.setPhone(e.getNewValue()));
-        
-        btnEditCompany.setOnAction(e -> {
-            update(compSelected.getNit(), compSelected.getName(), compSelected.getEmail(), compSelected.getPhone(), compSelected.getId());
-        });
-        
         
     }
 

@@ -23,5 +23,6 @@
       </TableView>
       <Label layoutX="80.0" layoutY="35.0" text="Conceptos">
          </Label>
+         <Button fx:id="btnRefresh" layoutX="515.0" layoutY="99.0" mnemonicParsing="false" text="Refresh" />
    </children>
 </AnchorPane>
